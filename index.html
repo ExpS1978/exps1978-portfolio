@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .menu-links {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .menu-links.open {
+            max-height: 300px;
+        }
+
+        .hamburger-icon.open span:first-child {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.open span:last-child {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="username text-xl font-bold text-indigo-600"></span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition">Skills</a>
+                    <a href="#experience" class="text-gray-700 hover:text-indigo-600 transition">Experience</a>
+                    <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition">Projects</a>
+                    <a href="#achievements" class="text-gray-700 hover:text-indigo-600 transition">Achievements</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                </div>
+
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger-icon flex flex-col justify-between w-6 h-5 focus:outline-none"
+                        onclick="toggleMenu()">
+                        <span class="block w-full h-0.5 bg-gray-700 transition"></span>
+                        <span class="block w-full h-0.5 bg-gray-700 transition"></span>
+                        <span class="block w-full h-0.5 bg-gray-700 transition"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="menu-links md:hidden bg-white shadow-md">
+            <div class="px-4 py-2 space-y-4">
+                <a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">About</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">Skills</a>
+                <a href="#experience" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">Projects</a>
+                <a href="#achievements" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">Achievements</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600 transition"
+                    onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <p class="text-lg text-indigo-600 mb-2">Hello, I'm</p>
+                    <h1 class="username text-4xl md:text-5xl font-bold text-gray-900 mb-4"></h1>
+                    <p class="profession text-xl md:text-2xl text-gray-600 mb-6"></p>
+                    <p class="text-gray-600 mb-8 max-w-lg" id="hero-description"></p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href=""
+                            class="resumeLink bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition">
+                            Download Resume
+                        </a>
+                        <a href="#contact"
+                            class="border border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-lg font-medium transition">
+                            Contact Me
+                        </a>
+                    </div>
+                    <div class="flex mt-8 space-x-4">
+                        <a href="" class="linkedin text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </a>
+                        <a href="" class="github text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="" class="twitter text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center items-center">
+                    <div
+                        class="w-64 h-64 md:w-80 md:h-80 rounded-full p-2 overflow-hidden shadow-lg border-4 border-blue-600">
+                        <div class="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="" id="profileImage" alt="Profile Photo"
+                                class="h-auto w-full object-scale-down mt-20">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center">
+                <div
+                    class="md:w-1/3 mb-8 md:mb-0 flex justify-center w-64 h-64 md:w-80 md:h-80 overflow-hidden shadow-lg rounded-3xl p-3 pt-6">
+                    <img src="" alt="About Photo" class="aboutPic w-64 h-64 md:w-80 md:h-80 object-cover ">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-briefcase text-indigo-600 text-xl mr-3"></i>
+                                <h3 class="text-lg font-semibold">Experience</h3>
+                            </div>
+                            <p id="experience-years">5+ years</p>
+                            <p id="experience-field">Full Stack Development</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-graduation-cap text-indigo-600 text-xl mr-3"></i>
+                                <h3 class="text-lg font-semibold">Education</h3>
+                            </div>
+                            <p id="education-degree">BSc in Computer Science</p>
+                            <p id="education-university">Stanford University</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6" id="about-description"></p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i>
+                            <span id="location">San Francisco, CA</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-indigo-600 mr-2"></i>
+                            <span id="email">example@email.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-indigo-600 mr-2"></i>
+                            <span id="phone">(123) 456-7890</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill1-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill1-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill1-title text-center font-semibold mb-2"></h3>
+                    <p class="skill1-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill2-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill2-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill2-title text-center font-semibold mb-2"></h3>
+                    <p class="skill2-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill3-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill3-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill3-title text-center font-semibold mb-2"></h3>
+                    <p class="skill3-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill4-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill4-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill4-title text-center font-semibold mb-2"></h3>
+                    <p class="skill4-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill5-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill5-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill5-title text-center font-semibold mb-2"></h3>
+                    <p class="skill5-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill6-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill6-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill6-title text-center font-semibold mb-2"></h3>
+                    <p class="skill6-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill7-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill7-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill7-title text-center font-semibold mb-2"></h3>
+                    <p class="skill7-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill8-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill8-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill8-title text-center font-semibold mb-2"></h3>
+                    <p class="skill8-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 9 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300" id="skill9-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill9-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill9-title text-center font-semibold mb-2"></h3>
+                    <p class="skill9-level text-center text-gray-600 text-sm"></p>
+                </div>
+
+                <!-- Skill 10 -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-sm transition duration-300"
+                    id="skill10-container">
+                    <div class="flex justify-center mb-4">
+                        <i class="skill10-icon text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="skill10-title text-center font-semibold mb-2"></h3>
+                    <p class="skill10-level text-center text-gray-600 text-sm"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Work Experience</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="experience1-container bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="experience1-title text-xl font-semibold"></h3>
+                        <span class="experience1-date text-gray-600"></span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-building text-indigo-600 mr-2"></i>
+                        <span class="experience1-company font-medium"></span>
+                    </div>
+                    <p class="experience1-description text-gray-600 mb-4"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="experience1-skill1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience1-skill2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience1-skill3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="experience2-container bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="experience2-title text-xl font-semibold"></h3>
+                        <span class="experience2-date text-gray-600"></span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-building text-indigo-600 mr-2"></i>
+                        <span class="experience2-company font-medium"></span>
+                    </div>
+                    <p class="experience2-description text-gray-600 mb-4"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="experience2-skill1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience2-skill2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience2-skill3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="experience3-container bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="experience3-title text-xl font-semibold"></h3>
+                        <span class="experience3-date text-gray-600"></span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-building text-indigo-600 mr-2"></i>
+                        <span class="experience3-company font-medium"></span>
+                    </div>
+                    <p class="experience3-description text-gray-600 mb-4"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="experience3-skill1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience3-skill2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience3-skill3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="experience4-container bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="experience4-title text-xl font-semibold"></h3>
+                        <span class="experience4-date text-gray-600"></span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-building text-indigo-600 mr-2"></i>
+                        <span class="experience4-company font-medium"></span>
+                    </div>
+                    <p class="experience4-description text-gray-600 mb-4"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="experience4-skill1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience4-skill2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience4-skill3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                    </div>
+                </div>
+
+                <!-- Experience 5 -->
+                <div class="experience5-container bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="experience5-title text-xl font-semibold"></h3>
+                        <span class="experience5-date text-gray-600"></span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-building text-indigo-600 mr-2"></i>
+                        <span class="experience5-company font-medium"></span>
+                    </div>
+                    <p class="experience5-description text-gray-600 mb-4"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="experience5-skill1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience5-skill2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        <span
+                            class="experience5-skill3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="project1-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 1" class="project1-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project1-title text-xl font-semibold mb-2"></h3>
+                        <p class="project1-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project1-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project1-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project1-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project1-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project1-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="project2-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 2" class="project2-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project2-title text-xl font-semibold mb-2"></h3>
+                        <p class="project2-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project2-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project2-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project2-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project2-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project2-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="project3-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 3" class="project3-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project3-title text-xl font-semibold mb-2"></h3>
+                        <p class="project3-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project3-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project3-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project3-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project3-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project3-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="project4-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 4" class="project4-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project4-title text-xl font-semibold mb-2"></h3>
+                        <p class="project4-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project4-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project4-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project4-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project4-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project4-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="project5-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 5" class="project5-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project5-title text-xl font-semibold mb-2"></h3>
+                        <p class="project5-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project5-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project5-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project5-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project5-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project5-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="project6-container project-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+                    <img src="" alt="Project 6" class="project6-image w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="project6-title text-xl font-semibold mb-2"></h3>
+                        <p class="project6-description text-gray-600 mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="project6-tech1 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project6-tech2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                            <span
+                                class="project6-tech3 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="" class="project6-github-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="" class="project6-live-link text-indigo-600 hover:text-indigo-800 transition">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 bg-gray-50" style="display: none;">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Achievements</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Achievement 1 -->
+                <div
+                    class="achievement1-container bg-white p-6 rounded-lg shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="achievement1-icon fas fa-trophy text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="achievement1-title text-xl font-semibold mb-1"></h3>
+                            <p class="achievement1-date text-gray-500 text-sm mb-2"></p>
+                            <p class="achievement1-description text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div
+                    class="achievement2-container bg-white p-6 rounded-lg shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="achievement2-icon fas fa-medal text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="achievement2-title text-xl font-semibold mb-1"></h3>
+                            <p class="achievement2-date text-gray-500 text-sm mb-2"></p>
+                            <p class="achievement2-description text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div
+                    class="achievement3-container bg-white p-6 rounded-lg shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="achievement3-icon fas fa-award text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="achievement3-title text-xl font-semibold mb-1"></h3>
+                            <p class="achievement3-date text-gray-500 text-sm mb-2"></p>
+                            <p class="achievement3-description text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 4 -->
+                <div
+                    class="achievement4-container bg-white p-6 rounded-lg shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="achievement4-icon fas fa-certificate text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="achievement4-title text-xl font-semibold mb-1"></h3>
+                            <p class="achievement4-date text-gray-500 text-sm mb-2"></p>
+                            <p class="achievement4-description text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 5 -->
+                <div
+                    class="achievement5-container bg-white p-6 rounded-lg shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="achievement5-icon fas fa-star text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="achievement5-title text-xl font-semibold mb-1"></h3>
+                            <p class="achievement5-date text-gray-500 text-sm mb-2"></p>
+                            <p class="achievement5-description text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Feel free to reach out if you're looking for a
+                    developer, have a question, or just want to connect.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Email</h3>
+                                <p id="contact-email" class="text-gray-600">example@email.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center mb-6">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Phone</h3>
+                                <p id="contact-phone" class="text-gray-600">(123) 456-7890</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Location</h3>
+                                <p id="contact-location" class="text-gray-600">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center space-x-6 mt-8">
+                        <a href="" class="contact-linkedin text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </a>
+                        <a href="" class="contact-github text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="" class="contact-twitter text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="" class="contact-instagram text-gray-600 hover:text-indigo-600 transition">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg font-medium transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="username text-xl font-bold"></span>
+                    <p class="text-gray-400 mt-1">Full Stack Developer</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition">Skills</a>
+                    <a href="#experience" class="text-gray-400 hover:text-white transition">Experience</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="#achievements" class="text-gray-400 hover:text-white transition">Achievements</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="current-year"></span> All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        window.toggleMenu = function () {
+            const menu = document.querySelector(".menu-links");
+            const icon = document.querySelector(".hamburger-icon");
+            menu.classList.toggle("open");
+            icon.classList.toggle("open");
+        }
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Sample data injection - this would be replaced with your actual data injection
+
+        let userData = {"username":"Subham Kumar","profession":"Software Engineer","heroDescription":"Always building something creative","resumeLink":"https://res.cloudinary.com/dpazarvil/raw/upload/v1749908108/assets/ncslutpzhwqavof85alt","linkedin":"https://www.linkedin.com/in/subham-kumar-73b98b252/","github":"https://github.com/Subhamk2004","twitter":"","profileImage":"https://res.cloudinary.com/dpazarvil/image/upload/v1749910065/assets/luhnxdkvjalj3e1k8gb0.jpg","aboutPic":"https://res.cloudinary.com/dpazarvil/image/upload/v1749910680/assets/uo80d7dkth5ttiudnw8c.jpg","experienceYears":"2 years","experienceField":"Full-stack development","educationDegree":"B.E.","educationUniversity":"AIT Pune","aboutDescription":"Hey there! 👋 I'm Subham Kumar, a Full-Stack web & mobile developer, skilled programmer, and enthusiastic competitive coder. I thrive on challenges and love turning ideas into reality through elegant code and captivating designs.","location":"Pune, Maharashtra","email":"subhamrahar22@gmail.com","phone":" +91 8852811978","instagram":"","skill1Title":"TypeScript","skill1Level":"Intermediate","skill2Title":"React","skill2Level":"High","skill3Title":"Next.js","skill3Level":"High","skill4Title":"Tailwind","skill4Level":"Advanced","skill5Title":"Redux","skill5Level":"","skill6Title":"Node","skill6Level":"","skill7Title":"MongoDB","skill7Level":"","skill8Title":"C++","skill8Level":"","skill9Title":"","skill9Level":"","skill10Title":"","skill10Level":"","experience1Title":"Frontend Developer","experience1Date":"Feb 2024 - April 2024","experience1Company":"Techsnap","experience1Description":"At Techsnap, I interned as a frontend developer, building a planner for events and an admin panel for test management. I also redesigned key website pages to improve user experience.","experience1Skill1":"React","experience1Skill2":"Tailwind","experience1Skill3":"Redux","experience2Title":"","experience2Date":"","experience2Company":"","experience2Description":"","experience2Skill1":"","experience2Skill2":"","experience2Skill3":"","experience3Title":"","experience3Date":"","experience3Company":"","experience3Description":"","experience3Skill1":"","experience3Skill2":"","experience3Skill3":"","experience4Title":"","experience4Date":"","experience4Company":"","experience4Description":"","experience4Skill1":"","experience4Skill2":"","experience4Skill3":"","experience5Title":"","experience5Date":"","experience5Company":"","experience5Description":"","experience5Skill1":"","experience5Skill2":"","experience5Skill3":"","project1Title":"OpusForge","project1Description":"Creating portfolios, has never been this easy. OpusForge automates all the tasks, from building to deploying","project1Image":"https://res.cloudinary.com/dpazarvil/image/upload/v1749912994/assets/lqjbtvumqpjoemueoel3.png","project1Github":"https://github.com/Subhamk2004/OpusForge","project1Live":"https://opus-forge.vercel.app/","project1Tech1":"Next.js","project1Tech2":"MongoDB","project1Tech3":"NextAuth","project2Title":" Aora: Share your creativity ","project2Description":"Developed Aora, a React Native social media app for both android and ios for sharing short videos. Enables users to upload, view, and engage with content, offering a seamless experience for video interactions. ","project2Image":"https://subhamk2004.github.io/Subham_Portfolio/images/aora.png","project2Github":"https://github.com/Subhamk2004/Social-media-app","project2Live":"https://drive.google.com/file/d/157KxdHJ_8YSiCC2pW3EqnXZbe4MRN8xZ/view","project2Tech1":"React Native","project2Tech2":"Appwrite","project2Tech3":"Nativewind","project3Title":"DocCures","project3Description":"Built DocCures, a MERN stack web application for booking doctor appointments. Users can create accounts, book appointments, and manage their health records seamlessly, along with AI chatbot. ","project3Image":"https://subhamk2004.github.io/Subham_Portfolio/images/DocCures.png","project3Github":"https://github.com/Subhamk2004/DocCures-Frontend","project3Live":"https://doc-cures-user.vercel.app/","project3Tech1":"React.js","project3Tech2":"Socket.io","project3Tech3":"Redux","project4Title":"SkillsLog","project4Description":"Developed SkillsLog, a MERN stack web application for tracking and logging skills. Users can create accounts, log their progress, and manage their github repos, save notes, much more. ","project4Image":"https://subhamk2004.github.io/Subham_Portfolio/images/SkillsLog.png","project4Github":"https://github.com/Subhamk2004/Performance-Tracker","project4Live":"https://performance-tracker-seven.vercel.app/","project4Tech1":"","project4Tech2":"","project4Tech3":"","project5Title":"","project5Description":"","project5Image":"","project5Github":"","project5Live":"","project5Tech1":"","project5Tech2":"","project5Tech3":"","project6Title":"","project6Description":"","project6Image":"","project6Github":"","project6Live":"","project6Tech1":"","project6Tech2":"","project6Tech3":"","achievement1Title":"","achievement1Date":"","achievement1Description":"","achievement1Icon":"","achievement2Title":"","achievement2Date":"","achievement2Description":"","achievement2Icon":"","achievement3Title":"","achievement3Date":"","achievement3Description":"","achievement3Icon":"","achievement4Title":"","achievement4Date":"","achievement4Description":"","achievement4Icon":"","achievement5Title":"","achievement5Date":"","achievement5Description":"","achievement5Icon":""}
+
+
+        // let userData = {
+        //     "username": "Alex Johnson",
+        //     "profession": "Full Stack Developer",
+        //     "heroDescription": "I create seamless web experiences with modern technologies and clean code.",
+        //     "resumeLink": "https://example.com/resume.pdf",
+        //     "linkedin": "https://linkedin.com/in/alexjohnson",
+        //     "github": "https://github.com/alexjohnson",
+        //     "twitter": "https://twitter.com/alexjohnson",
+        //     "profileImage": "https://randomuser.me/api/portraits/men/32.jpg",
+        //     "aboutPic": "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2",
+        //     "experienceYears": "4+ years",
+        //     "experienceField": "Web Development",
+        //     "educationDegree": "BSc in Computer Science",
+        //     "educationUniversity": "MIT",
+        //     "aboutDescription": "Passionate developer specializing in React and Node.js with experience building scalable applications for startups and enterprises.",
+        //     "location": "New York, NY",
+        //     "email": "alex.johnson@example.com",
+        //     "phone": "(555) 123-4567",
+        //     "instagram": "https://instagram.com/alexjohnson",
+
+        //     // Skills (10 total, showing 6 filled)
+        //     "skill1Title": "JavaScript",
+        //     "skill1Level": "Expert",
+        //     "skill2Title": "React",
+        //     "skill2Level": "Expert",
+        //     "skill3Title": "Node.js",
+        //     "skill3Level": "Advanced",
+        //     "skill4Title": "TypeScript",
+        //     "skill4Level": "Intermediate",
+        //     "skill5Title": "Python",
+        //     "skill5Level": "Intermediate",
+        //     "skill6Title": "AWS",
+        //     "skill6Level": "Beginner",
+        //     "skill7Title": "",
+        //     "skill7Level": "",
+        //     "skill8Title": "",
+        //     "skill8Level": "",
+        //     "skill9Title": "",
+        //     "skill9Level": "",
+        //     "skill10Title": "",
+        //     "skill10Level": "",
+
+        //     // Experience (5 total, showing 3 filled)
+        //     "experience1Title": "Senior Frontend Developer",
+        //     "experience1Date": "2021 - Present",
+        //     "experience1Company": "TechCorp Inc.",
+        //     "experience1Description": "Lead development of customer dashboard using React and Redux.",
+        //     "experience1Skill1": "React",
+        //     "experience1Skill2": "TypeScript",
+        //     "experience1Skill3": "Jest",
+
+        //     "experience2Title": "Full Stack Developer",
+        //     "experience2Date": "2019 - 2021",
+        //     "experience2Company": "WebSolutions LLC",
+        //     "experience2Description": "Developed REST APIs with Node.js and React frontends.",
+        //     "experience2Skill1": "Node.js",
+        //     "experience2Skill2": "Express",
+        //     "experience2Skill3": "MongoDB",
+
+        //     "experience3Title": "Junior Developer",
+        //     "experience3Date": "2018 - 2019",
+        //     "experience3Company": "StartUp Ventures",
+        //     "experience3Description": "Built responsive UIs and fixed bugs across the application.",
+        //     "experience3Skill1": "HTML/CSS",
+        //     "experience3Skill2": "JavaScript",
+        //     "experience3Skill3": "jQuery",
+
+        //     "experience4Title": "",
+        //     "experience4Date": "",
+        //     "experience4Company": "",
+        //     "experience4Description": "",
+        //     "experience4Skill1": "",
+        //     "experience4Skill2": "",
+        //     "experience4Skill3": "",
+
+        //     "experience5Title": "",
+        //     "experience5Date": "",
+        //     "experience5Company": "",
+        //     "experience5Description": "",
+        //     "experience5Skill1": "",
+        //     "experience5Skill2": "",
+        //     "experience5Skill3": "",
+
+        //     // Projects (6 total, showing 4 filled)
+        //     "project1Title": "E-commerce Platform",
+        //     "project1Description": "Full-featured online store with payment integration.",
+        //     "project1Image": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a",
+        //     "project1Github": "https://github.com/alexjohnson/ecommerce",
+        //     "project1Live": "https://ecommerce-demo.example.com",
+        //     "project1Tech1": "React",
+        //     "project1Tech2": "Node.js",
+        //     "project1Tech3": "Stripe API",
+
+        //     "project2Title": "Task Management App",
+        //     "project2Description": "Kanban-style productivity application with real-time updates.",
+        //     "project2Image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+        //     "project2Github": "https://github.com/alexjohnson/task-manager",
+        //     "project2Live": "https://tasks.example.com",
+        //     "project2Tech1": "React",
+        //     "project2Tech2": "Firebase",
+        //     "project2Tech3": "Material UI",
+
+        //     "project3Title": "Weather Dashboard",
+        //     "project3Description": "Real-time weather visualization with historical data.",
+        //     "project3Image": "https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9",
+        //     "project3Github": "https://github.com/alexjohnson/weather-app",
+        //     "project3Live": "https://weather.example.com",
+        //     "project3Tech1": "JavaScript",
+        //     "project3Tech2": "Chart.js",
+        //     "project3Tech3": "Weather API",
+
+        //     "project4Title": "Portfolio Template",
+        //     "project4Description": "Responsive portfolio template for developers.",
+        //     "project4Image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+        //     "project4Github": "https://github.com/alexjohnson/portfolio-template",
+        //     "project4Live": "https://portfolio-template.example.com",
+        //     "project4Tech1": "HTML/CSS",
+        //     "project4Tech2": "JavaScript",
+        //     "project4Tech3": "Tailwind CSS",
+
+        //     "project5Title": "",
+        //     "project5Description": "",
+        //     "project5Image": "",
+        //     "project5Github": "",
+        //     "project5Live": "",
+        //     "project5Tech1": "",
+        //     "project5Tech2": "",
+        //     "project5Tech3": "",
+
+        //     "project6Title": "",
+        //     "project6Description": "",
+        //     "project6Image": "",
+        //     "project6Github": "",
+        //     "project6Live": "",
+        //     "project6Tech1": "",
+        //     "project6Tech2": "",
+        //     "project6Tech3": "",
+        //     // In your userData object (sample data)
+        //     "achievement1Title": "Best Hackathon Project",
+        //     "achievement1Date": "June 2022",
+        //     "achievement1Description": "Won first place in the annual Tech Innovators Hackathon with my team.",
+        //     "achievement1Icon": "fa-trophy",
+
+        //     "achievement2Title": "Employee of the Month",
+        //     "achievement2Date": "March 2021",
+        //     "achievement2Description": "Recognized for outstanding contributions to our flagship product.",
+        //     "achievement2Icon": "fa-medal",
+
+        //     "achievement3Title": "",
+        //     "achievement3Date": "",
+        //     "achievement3Description": "",
+        //     "achievement3Icon": "",
+
+        //     "achievement4Title": "",
+        //     "achievement4Date": "",
+        //     "achievement4Description": "",
+        //     "achievement4Icon": "",
+
+        //     "achievement5Title": "",
+        //     "achievement5Date": "",
+        //     "achievement5Description": "",
+        //     "achievement5Icon": ""
+        // }
+
+
+
+        document.querySelectorAll(".username").forEach(element => {
+            element.textContent = userData.username
+        });
+
+        document.querySelector(".profession").textContent = userData.profession;
+        document.getElementById("hero-description").textContent = userData.heroDescription;
+        document.querySelector(".resumeLink").href = userData.resumeLink || "#";
+        document.querySelector(".linkedin").href = userData.linkedin || "#";
+        document.querySelector(".github").href = userData.github || "#";
+        document.querySelector(".twitter").href = userData.twitter || "#";
+        document.getElementById("profileImage").src = userData.profileImage;
+        document.querySelector(".aboutPic").src = userData.aboutPic;
+
+        // About section
+        document.getElementById("experience-years").textContent = userData.experienceYears;
+        document.getElementById("experience-field").textContent = userData.experienceField;
+        document.getElementById("education-degree").textContent = userData.educationDegree;
+        document.getElementById("education-university").textContent = userData.educationUniversity;
+        document.getElementById("about-description").textContent = userData.aboutDescription;
+        document.getElementById("location").textContent = userData.location;
+        document.getElementById("email").textContent = userData.email;
+        document.getElementById("phone").textContent = userData.phone;
+
+        // Contact section
+        document.getElementById("contact-email").textContent = userData.email || "example@email.com";
+        document.getElementById("contact-phone").textContent = userData.phone || "(123) 456-7890";
+        document.getElementById("contact-location").textContent = userData.location;
+        document.querySelector(".contact-linkedin").href = userData.linkedin || "#";
+        document.querySelector(".contact-github").href = userData.github || "#";
+        document.querySelector(".contact-twitter").href = userData.twitter || "#";
+        document.querySelector(".contact-instagram").href = userData.instagram || "#";
+
+        // Check if any achievements exist and show section if they do
+        let hasAchievements = false;
+
+        // Achievements - Show section if any achievements exist
+        for (let i = 1; i <= 5; i++) {
+            const achievementTitle = userData[`achievement${i}Title`];
+            if (achievementTitle) {
+                hasAchievements = true;
+                break;
+            }
+        }
+
+        if (hasAchievements) {
+            document.getElementById('achievements').style.display = 'block';
+
+            // Set achievement data
+            for (let i = 1; i <= 5; i++) {
+                const achievementTitle = userData[`achievement${i}Title`];
+                const container = document.querySelector(`.achievement${i}-container`);
+
+                if (!achievementTitle) {
+                    container.style.display = 'none';
+                } else {
+                    document.querySelector(`.achievement${i}-title`).textContent = achievementTitle;
+                    document.querySelector(`.achievement${i}-date`).textContent = userData[`achievement${i}Date`] || "";
+                    document.querySelector(`.achievement${i}-description`).textContent = userData[`achievement${i}Description`] || "";
+
+                    // Set icon if specified
+                    const icon = userData[`achievement${i}Icon`];
+                    if (icon) {
+                        document.querySelector(`.achievement${i}-icon`).className = `achievement${i}-icon fas ${icon} text-indigo-600`;
+                    }
+                }
+            }
+        }
+
+        // Skills - Hide empty skill containers
+        for (let i = 1; i <= 10; i++) {
+            const skillTitle = userData[`skill${i}Title`];
+            const container = document.getElementById(`skill${i}-container`);
+
+            if (!skillTitle) {
+                container.style.display = 'none';
+            } else {
+                document.querySelector(`.skill${i}-title`).textContent = skillTitle;
+                document.querySelector(`.skill${i}-level`).textContent = userData[`skill${i}Level`] || "Advanced";
+
+                // Set icon based on skill (you can customize this)
+                const iconClass = getSkillIconClass(skillTitle);
+                document.querySelector(`.skill${i}-icon`).className = `skill${i}-icon ${iconClass}`;
+            }
+        }
+
+        // Experience - Hide empty experience containers
+        for (let i = 1; i <= 5; i++) {
+            const expTitle = userData[`experience${i}Title`];
+            const container = document.querySelector(`.experience${i}-container`);
+
+            if (!expTitle) {
+                container.style.display = 'none';
+            } else {
+                document.querySelector(`.experience${i}-title`).textContent = expTitle;
+                document.querySelector(`.experience${i}-date`).textContent = userData[`experience${i}Date`] || "Jan 2020 - Present";
+                document.querySelector(`.experience${i}-company`).textContent = userData[`experience${i}Company`] || "Tech Company";
+                document.querySelector(`.experience${i}-description`).textContent = userData[`experience${i}Description`] || "Worked on various projects and contributed to team success.";
+
+                // Set skills
+                for (let j = 1; j <= 3; j++) {
+                    const skill = userData[`experience${i}Skill${j}`];
+                    if (skill) {
+                        document.querySelector(`.experience${i}-skill${j}`).textContent = skill;
+                    } else {
+                        document.querySelector(`.experience${i}-skill${j}`).style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Projects - Hide empty project containers
+        for (let i = 1; i <= 6; i++) {
+            const projectTitle = userData[`project${i}Title`];
+            const container = document.querySelector(`.project${i}-container`);
+
+            if (!projectTitle) {
+                container.style.display = 'none';
+            } else {
+                document.querySelector(`.project${i}-title`).textContent = projectTitle;
+                document.querySelector(`.project${i}-description`).textContent = userData[`project${i}Description`] || "A project I worked on that solves important problems.";
+                document.querySelector(`.project${i}-image`).src = userData[`project${i}Image`] || "https://via.placeholder.com/600x400";
+                document.querySelector(`.project${i}-github-link`).href = userData[`project${i}Github`] || "#";
+                document.querySelector(`.project${i}-live-link`).href = userData[`project${i}Live`] || "#";
+
+                // Set technologies
+                for (let j = 1; j <= 3; j++) {
+                    const tech = userData[`project${i}Tech${j}`];
+                    if (tech) {
+                        document.querySelector(`.project${i}-tech${j}`).textContent = tech;
+                    } else {
+                        document.querySelector(`.project${i}-tech${j}`).style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Helper function to get icon class based on skill name
+        function getSkillIconClass(skillName) {
+            const lowerSkill = skillName.toLowerCase();
+            if (lowerSkill.includes('html')) return 'fab fa-html5';
+            if (lowerSkill.includes('css')) return 'fab fa-css3-alt';
+            if (lowerSkill.includes('javascript') || lowerSkill.includes('js')) return 'fab fa-js';
+            if (lowerSkill.includes('react')) return 'fab fa-react';
+            if (lowerSkill.includes('node')) return 'fab fa-node-js';
+            if (lowerSkill.includes('python')) return 'fab fa-python';
+            if (lowerSkill.includes('java')) return 'fab fa-java';
+            if (lowerSkill.includes('php')) return 'fab fa-php';
+            if (lowerSkill.includes('database') || lowerSkill.includes('sql')) return 'fas fa-database';
+            if (lowerSkill.includes('git')) return 'fab fa-git-alt';
+            return 'fas fa-code'; // default icon
+        }
+    </script>
+</body>
+
+</html>
